@@ -1,0 +1,180 @@
+
+body,html{
+  margin:0;
+  width:100%;
+  background-color: #005AB5;
+}
+
+.nav {
+  padding: 20px 0 10px 0; 
+}
+
+.container {
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+#index-container {
+  background-color: white;
+  border-radius: 5px;
+}
+
+#to-do-list-title {
+  color: white;
+  font-size: 30px;
+  padding-top: 20px;
+}
+
+
+#new-todo .btn {
+  color: #247BB3;
+}
+
+#new-todo .btn:hover {
+  color: #CE0000;
+}
+
+#new-todo .btn-circle-sm {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding: 0 0 0 2px;
+  font-size: 20px;
+  line-height: 1.65;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.table-hover> tbody > .no-hover:hover {
+    background-color: #ffffff;
+}
+
+#new-todo {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle; 
+  padding-top: 20px;
+}
+
+
+
+#main-table > tbody > tr > td {
+  vertical-align: middle;
+  word-break: break-all;
+  padding: 8px 2px 8px 2px;
+}
+
+.drop-down-btn {
+  border: 0 none;
+  background-color: transparent;
+  outline:none;
+  color: #888888;
+}
+
+.drop-down-btn:hover {
+  border: 0 none;
+  background-color: transparent;
+  outline:none;
+  color:black;
+}
+
+.check-lbl, .due-time-lbl, .due-date-lbl, .show-lbl, .edit-lbl, .destroy-lbl {
+  text-align: center;
+}
+
+ button:disabled {
+  background-color: transparent;
+ }
+
+a.btn.glyphicon.glyphicon-list:hover, a.btn.glyphicon.glyphicon-pencil:hover,  a.btn.glyphicon.glyphicon-trash:hover {
+  text-align: center;
+  color: #CE0000;
+}
+
+.date-each {
+  font-size: 4vmin;
+  color: #CE0000;
+}
+
+.year-month-each {
+  font-size: 2vmin;
+}
+
+.day-each {
+  color: #005AB5;
+  font-size: 2vmin;
+}
+
+
+.title-lbl, .due-time-lbl {
+  font-weight: bold;
+  font-size: 2.5vmin;
+}
+
+.note-lbl {
+  color: #666666;
+  font-size: 2vmin;
+}
+
+.label-control {
+  display: inline;
+}
+
+a.btn.glyphicon {
+  padding: 0;
+}
+
+td.check-lbl {
+
+}
+
+/* new.html */
+
+form#new_todo {
+  padding: 20px 0 20px 0;
+}
+
+
+/* edit.html*/
+
+form.edit_todo {
+  padding: 20px 0 20px 0;
+}
+
+.check-box-row {
+  padding-bottom: 10px ; 
+}
+
+.label-control {
+  font-size: 2vmin;
+}
+
+a.btn-danger {
+  margin-right: 8px;
+}
+
+/* show.html */
+
+.container2 {
+  margin: 20px 0 0 0;
+}
+
+#detail-table {
+  margin: 20px 0 20px 0;
+}
+
+#detail-table tr td:first-of-type {
+  font-weight: bold;
+}
+
+#detail-table > tbody > tr > td {
+  vertical-align: middle;
+  word-break: break-all;
+  font-size: 2.5vmin;
+}
+
+/*.todo-show {
+  font-weight: bold;
+  color: #247BB3;
+}*/
