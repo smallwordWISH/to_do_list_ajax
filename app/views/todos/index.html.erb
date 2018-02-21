@@ -1,18 +1,21 @@
 
-<div class="nav container-fluid col-xs-12 col-sm-12  col-md-offset-2 col-md-9 col-lg-offset-2 col-lg-9"> 
-  <div id="to-do-list-title" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-    To Do List
+<div class="container">
+  <div class="nav"> 
+    <div id="to-do-list-title" class="col-xs-10">
+      To Do List
+    </div>
+    <div id="new-todo" class="pull-right">
+      <button class="plus-sign btn btn-circle-sm btn-primary glyphicon glyphicon-plus" ></button>
+    </div>
   </div>
-  <div id="new-todo" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    <%= link_to '', new_todo_path, class: "plus-sign btn btn-circle-sm btn-primary glyphicon glyphicon-plus" %>
+  <div id="new-todo-form">
+    <%= render partial: "form", locals: {todo: @todo} %>
   </div>
-</div>
-<div id="index-container" class="container-fluid col-xs-12 col-md-offset-2 col-md-8 col-md-offset-2">
-<!--         <div class="table-responsive"> -->
+  <div id="index-container" class="container-fluid">
     <table id="main-table" class="table table-hover col-xs-12">
       <% todos_date = @todos_uniq_date.to_a %>          
       <% for i in 0...todos_date.length %>
-          <tr class="no-hover">
+          <tr id="<%= todos_date[i].strftime('%Y%m%d') %>" class="no-hover todo-time-label">
             <th class="date-lbl" colspan="6">               
               <span class="date-each" ><%= todos_date[i].strftime('%d') %></span>
               <span class="year-month-each">&nbsp;&nbsp;<%= todos_date[i].strftime('%B %Y') %></span>
@@ -22,34 +25,13 @@
           </tr>
           <% @todos.each do | todo | %>
             <% if todo.due_date ==  todos_date[i] %>
-              <tr>
-                <td class="check-lbl col-xs-1">
-                  <div class="checkbox checkbox-success"> 
-                    <%= check_box_tag 'checkbox3' , todo.check_box, todo.check_box, onchange: "$(this).data('params', 'check_box=' + this.checked)", data: { url: url_for(action: 'complete', id: todo.id ), remote: true, method: :patch }, class: "styled" %>
-                    <%= label_tag '' %>
-                  </div>
-                </td>
-                <td class="col-xs-6">
-                  <span class="title-lbl"><%= todo.title %></span><br>
-                  <span class="note-lbl"><%= todo.note %></span>
-                </td>
-                <td class="due-time-lbl col-xs-2"><%= todo.due_time.strftime('%H:%M') %></td>
-                <td class="show-lbl col-xs-1"><%= link_to '', todo_path(todo), class: "btn glyphicon glyphicon-list"%></td>
-                <td class="edit-lbl col-xs-1" ><%= link_to '', edit_todo_path(todo), class: "btn glyphicon glyphicon-pencil" %></td>
-
-                <% if todo.due_date.strftime("%Y-%m-%d") < Time.new.strftime("%Y-%m-%d") %>
-                  <td class="col-xs-1" align="center"><button type="button" class="btn glyphicon glyphicon-trash" disabled="disabled"></button></td>
-                <% else %>
-                  <% if todo.due_date.strftime('%d %B %Y %a') == Time.new.strftime('%d %B %Y %a') && todo.due_time.strftime('%H:%M')< Time.new.strftime('%H:%M')%>
-                    <td class="col-xs-1" align="center"><button type="button" class="btn glyphicon glyphicon-trash" disabled="disabled"></td>
-                  <% else %>
-                    <td class="destroy-lbl"><%= link_to "", todo_path(todo), method: :delete, data:{ confirm: "Are you sure?"}, class: "btn glyphicon glyphicon-trash" %></td>
-                  <% end %> 
-                <% end %>
+              <tr id="<%= todo.due_date.strftime('%Y%m%d') + todo.due_time.strftime('%H%M') %>">
+                <%= render partial: "todo", locals: {todo: todo} %>
               </tr>
             <% end %>
         <% end %>
     <% end %>   
   </table>
 </div>
-<!--     </div> -->
+</div>
+

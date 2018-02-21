@@ -1,0 +1,13 @@
+  <td class="check-lbl col-xs-1">
+    <div class="checkbox checkbox-success"> 
+      <%= check_box_tag 'checkbox3' , todo.check_box, todo.check_box, onchange: "$(this).data('params', 'check_box=' + this.checked)", data: { url: url_for(action: 'complete', id: todo.id ), remote: true, method: :patch }, class: "styled" %>
+      <%= label_tag '' %>
+    </div>
+  </td>
+  <td class="col-xs-7 edit-place">
+    <span class="title-lbl"><%= todo.title %></span><br>
+    <span class="note-lbl"><%= todo.note %></span>
+  </td>
+  <td class="due-time-lbl col-xs-2"><%= todo.due_time.strftime('%H:%M') %></td>
+  <td class="edit-lbl col-xs-1" ><%= link_to '', edit_todo_path(todo), remote: true, class: "btn glyphicon glyphicon-pencil" %></td>
+  <td class="destroy-lbl"><%= link_to "", todo_path(todo),remote: true, method: :delete, data:{ confirm: "Are you sure?"}, class: "btn glyphicon glyphicon-trash" %></td>

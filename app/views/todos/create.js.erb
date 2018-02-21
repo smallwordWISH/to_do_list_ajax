@@ -1,0 +1,32 @@
+var date = '<%= @todo.due_date.strftime("%Y%m%d")%>';
+var time = '<%= @todo.due_time.strftime("%H%M")%>';
+var dateNumber = parseInt(date);
+var dateTimeNumber = parseInt(date + time);
+var todoHtml = '<%= j render partial: 'todo', locals: { todo: @todo} %>';
+var todoHtmlAll = '<%= j render partial: 'todo_all', locals: { todo: @todo} %>';
+
+if ($('tbody').length == 0) {
+  $('table').append(todoHtmlAll);
+} else if ($(`tbody #${date}`).length == 0) {
+  $('tbody .todo-time-label').each(function(event){
+    var dateEach = parseInt(this.id);
+    if ( dateNumber < dateEach ) {
+      $(`tbody #${dateEach}`).before(todoHtmlAll);
+      event.stopPropagation();
+    } 
+  }); 
+  $('tbody').append(todoHtmlAll);
+} else {
+  $(`tbody #${dateNumber}`).nextUntil('.todo-time-label').each(function(event){
+    var dateEach = parseInt(this.id);
+    if ( dateTimeNumber < dateEach) {
+      $(`tbody #${dateEach}`).before(todoHtml);
+      event.stopPropagation();
+    }
+  });
+  if ($(`tbody #${dateNumber}`).nextAll('.todo-time-label').length == 0) {
+    $('tbody').append(todoHtml);
+  } else {
+    $(`tbody #${dateNumber}`).nextAll('.todo-time-label').eq(0).before(todoHtml);
+  }
+} 

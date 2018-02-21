@@ -1,0 +1,11 @@
+<tr id="<%= todo.due_date.strftime('%Y%m%d') %>" class="no-hover todo-time-label">
+  <th class="date-lbl" colspan="6">               
+    <span class="date-each" ><%= todo.due_date.strftime('%d') %></span>
+    <span class="year-month-each">&nbsp;&nbsp;<%= todo.due_date.strftime('%B %Y') %></span>
+    <span class="day-each">&nbsp;&nbsp;<%= todo.due_date.strftime('%a')%><span>
+    <span ><%= button_tag '', class: "drop-down-btn btn-sm glyphicon glyphicon-triangle-bottom"%></span>
+  </th>
+</tr>
+<tr id="<%= todo.due_date.strftime('%Y%m%d') + todo.due_time.strftime('%H%M') %>">
+<%= render partial: 'todo', locals: { todo: todo} %>
+</tr>

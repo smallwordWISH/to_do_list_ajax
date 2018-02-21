@@ -1,0 +1,9 @@
+var date = '<%= @todo.due_date.strftime("%Y%m%d")%>';
+var time = '<%= @todo.due_time.strftime("%H%M")%>';
+var dateTime = date + time;
+
+console.log(dateTime);
+var html = '<%= j render partial: 'edit_form', locals: {todo: @todo} %>';
+
+console.log($(`#${dateTime}`));
+$(`#${dateTime} .edit-place`).html(html);

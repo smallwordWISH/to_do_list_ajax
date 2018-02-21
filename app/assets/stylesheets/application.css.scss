@@ -1,6 +1,5 @@
  
 
-//= require common
 //= require awesome-bootstrap-checkbox
 
 @import 'bootstrap-sprockets';
@@ -11,7 +10,9 @@
 @import "font-awesome";
 
 
-@import "awesome-bootstrap-checkbox"
+@import "awesome-bootstrap-checkbox";
+@import "common"
+
 
 
 

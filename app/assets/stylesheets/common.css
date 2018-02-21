@@ -1,4 +1,3 @@
-
 body,html{
   margin:0;
   width:100%;
@@ -10,7 +9,8 @@ body,html{
 }
 
 .container {
-  background-color: white;
+  width: 60%;
+  margin: 0 auto;
   border-radius: 5px;
   padding-bottom: 20px;
 }
@@ -23,12 +23,13 @@ body,html{
 #to-do-list-title {
   color: white;
   font-size: 30px;
-  padding-top: 20px;
 }
 
-
 #new-todo .btn {
+  margin-top: 5px;
+  margin-right: 10px;
   color: #247BB3;
+  outline: none;
 }
 
 #new-todo .btn:hover {
@@ -49,14 +50,6 @@ body,html{
 .table-hover> tbody > .no-hover:hover {
     background-color: #ffffff;
 }
-
-#new-todo {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle; 
-  padding-top: 20px;
-}
-
 
 
 #main-table > tbody > tr > td {
@@ -129,52 +122,78 @@ td.check-lbl {
 
 }
 
-/* new.html */
 
-form#new_todo {
-  padding: 20px 0 20px 0;
+/* new todo form */
+#new-todo-form {
+  display: none;
 }
 
+.new_todo {
+  display: grid;
+  grid-gap: 0 20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column: 1fr, 1fr;
+  margin-bottom: 20px;
+} 
 
-/* edit.html*/
-
-form.edit_todo {
-  padding: 20px 0 20px 0;
+.new_todo label {
+  color: white;
 }
 
-.check-box-row {
-  padding-bottom: 10px ; 
+#form-title {
+ grid-column: 1 / 4
 }
 
-.label-control {
-  font-size: 2vmin;
+#form-note {
+  grid-column: 1 / -2;
 }
 
-a.btn-danger {
-  margin-right: 8px;
+textarea {
+  resize: none;
 }
 
-/* show.html */
-
-.container2 {
-  margin: 20px 0 0 0;
+#form-checkbox {
+  display: none;
 }
 
-#detail-table {
-  margin: 20px 0 20px 0;
+#form-create-btn {
+  align-self: end;
+} 
+
+.form-group {
+  margin-bottom: 0;
 }
 
-#detail-table tr td:first-of-type {
-  font-weight: bold;
+/* edit form */
+
+tbody .edit_todo {
+  display: grid;
+  grid-gap: 0 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
 }
 
-#detail-table > tbody > tr > td {
-  vertical-align: middle;
-  word-break: break-all;
-  font-size: 2.5vmin;
+.edit-form-title {
+  grid-column: 1 / 3;
 }
 
-/*.todo-show {
-  font-weight: bold;
-  color: #247BB3;
-}*/
+.edit-form-note {
+  grid-column: 1 / 4;
+}
+
+.update-btn {
+  justify-self: end;
+  align-self: center;
+}
+
+@media(max-width: 1024px) {
+  .container {
+   width: 80%;
+  }
+}
+
+@media(max-width: 500px) {
+  .container {
+   width: 95%;
+  }
+}
