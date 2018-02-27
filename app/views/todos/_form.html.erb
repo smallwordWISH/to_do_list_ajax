@@ -1,22 +1,14 @@
+<span style="color: red" id="errors-msg"></span>
 <%= form_for todo, remote: true do |f|%>
   <div id="form-title" class="form-group">
     <%= f.label :title, "Title"  ,class: "label-control"%>
-    <% if todo.errors[:title].present? %>
-      <span style="color: red"><%= "#{todo.errors[:title].join}"%></span>
-    <% end %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, maxlength: 20, class: "form-control" %>
   </div>
-  
   <div id="form-date" class="form-group">
     <%= f.label :due_date, "Due date" ,class: "label-control"%>
-      <% if todo.errors[:due_date].present? %>
-      <span style="color: red" >
-        <%= "#{todo.errors[:due_date].join}" %>
-      </span>
-    <% end %>
     <div class='input-group date' id='datetimepicker1'>
       <%= f.text_field :due_date, class: "form-control"%> 
-      <span class="input-group-addon">
+      <span class="input-group-addon" id="calender-btn">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
     </div>
@@ -24,32 +16,21 @@
 
   <div id="form-time" class="form-group">
     <%= f.label :due_time, "Due time" ,class: "label-control"%>
-      <% if todo.errors[:due_time].present? %>
-      <span style="color: red">
-        <%= "#{todo.errors[:due_time].join}" %>
-      </span>
-    <% end %>
     <div class='input-group date' id='datetimepicker3'>
       <%= f.text_field :due_time, class: "form-control"%> 
-      <span class="input-group-addon">
+      <span class="input-group-addon" id="time-btn">
         <span class="glyphicon glyphicon-time"></span>
       </span>
     </div>
   </div>
-
   <div id="form-note" class="form-group">
     <%= f.label :note, "Note" ,class: "label-control"%>
-    <% if todo.errors[:note].present? %>
-      <span style="color: red">
-        <%= "#{todo.errors[:note].join}" %>
-      </span>
-    <% end %>
     <%= f.text_area :note ,class: "form-control", rows:"2", maxlength:'100'%>    
   </div>
   <div id="form-checkbox">
       <%= f.check_box :check_box, checked: false %>
   </div>
   <div id="form-create-btn">
-    <%= f.submit 'Create', class: "btn btn-primary", style: "float: right"%>
+    <%= f.submit 'Create', class: "create-btn btn btn-primary", style: "float: right"%>
   </div>
 <% end %>

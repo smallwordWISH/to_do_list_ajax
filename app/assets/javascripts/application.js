@@ -5,13 +5,26 @@
 //= require bootstrap-datetimepicker
 
 
-$(document).ready(function() {
+$(document).on('turbolinks:load',function() {
+   
    $('#datetimepicker1').datetimepicker({
-      format: 'YYYY-MM-DD'
+         format: 'YYYY-MM-DD'
    });
 
    $('#datetimepicker3').datetimepicker({
-       format: 'HH:mm'
+      format: 'HH:mm'
+   });
+
+   $('#new-todo-form').on('click', '#calender-btn', function(){
+      $('#datetimepicker1').datetimepicker({
+         format: 'YYYY-MM-DD'
+      });
+   });
+      
+   $('#new-todo-form').on('click', '#time-btn', function(){
+      $('#datetimepicker3').datetimepicker({
+         format: 'HH:mm'
+      });
    });
 
    $(document).on('click', '.drop-down-btn', function(){
