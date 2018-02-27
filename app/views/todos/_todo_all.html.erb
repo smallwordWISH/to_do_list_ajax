@@ -6,6 +6,4 @@
     <span ><%= button_tag '', class: "drop-down-btn btn-sm glyphicon glyphicon-triangle-bottom"%></span>
   </th>
 </tr>
-<tr id="<%= todo.due_date.strftime('%Y%m%d') + todo.due_time.strftime('%H%M') %>">
 <%= render partial: 'todo', locals: { todo: todo} %>
-</tr>

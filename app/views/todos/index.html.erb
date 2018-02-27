@@ -25,9 +25,7 @@
           </tr>
           <% @todos.each do | todo | %>
             <% if todo.due_date ==  todos_date[i] %>
-              <tr id="<%= todo.due_date.strftime('%Y%m%d') + todo.due_time.strftime('%H%M') %>">
                 <%= render partial: "todo", locals: {todo: todo} %>
-              </tr>
             <% end %>
         <% end %>
     <% end %>   
