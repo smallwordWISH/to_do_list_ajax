@@ -23,7 +23,10 @@ class TodosController < ApplicationController
   end
 
   def complete
-    @todo.update_attributes(todo_check_params)
+    check_status = @todo.check_box ? false : true
+    @todo.update(check_box: check_status)
+
+    render "update.js.erb"
   end
 
   

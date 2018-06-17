@@ -4,4 +4,4 @@ var dateTime = date + time;
 var html = '<%= j render partial: 'todo', locals: {todo: @todo} %>';
 
 console.log($(`#${dateTime}`));
-$(`#${dateTime}`).replaceWith(html);
+$(`#${dateTime}.<%= @todo.id %>` ).replaceWith(html);

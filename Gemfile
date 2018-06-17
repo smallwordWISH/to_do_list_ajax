@@ -59,6 +59,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'momentjs-rails', '>= 2.9.0'
