@@ -1,11 +1,11 @@
 <tr id="<%= todo.due_date.strftime('%Y%m%d') + todo.due_time.strftime('%H%M') %>" class="<%= todo.id %>">
   <td class="check-lbl col-xs-1">
-    <div class="checkbot-btnx"> 
+    <div class="checkbox-btn"> 
       <%= link_to complete_todo_path(todo), method: :patch, remote: true do %>
         <% if todo.check_box == true %>
-          <button class="btn"><i class="fa fa-check-square"></i></button>
+          <button class="btn btn-lg"><i class="fa fa-check-square"></i></button>
         <% else %>
-          <button class="btn"><i class="fa fa-square-o"></i></button>
+          <button class="btn btn-lg"><i class="fa fa-square-o"></i></button>
         <% end %>
       <% end %>
     </div>

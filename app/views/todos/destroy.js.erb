@@ -1,1 +1,1 @@
-$("#<%= @todo.due_date.strftime('%Y%m%d') + @todo.due_time.strftime('%H%M') %>" ).remove();
+$("#<%= @todo.due_date.strftime('%Y%m%d') + @todo.due_time.strftime('%H%M') %>.<%= @todo.id %>" ).remove();

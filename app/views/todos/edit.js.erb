@@ -5,5 +5,4 @@ var dateTime = date + time;
 console.log(dateTime);
 var html = '<%= j render partial: 'edit_form', locals: {todo: @todo} %>';
 
-console.log($(`#${dateTime}`));
-$(`#${dateTime} .edit-place`).html(html);
+$(`#${dateTime}.<%= @todo.id%> .edit-place`).html(html);

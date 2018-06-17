@@ -4,6 +4,10 @@ body,html{
   background-color: #005AB5;
 }
 
+.btn, button, button:focus{
+  outline:0px !important; 
+}
+
 .nav {
   padding: 20px 0 10px 0; 
 }
@@ -118,10 +122,14 @@ a.btn.glyphicon {
   padding: 0;
 }
 
-td.check-lbl {
-
+.checkbox-btn a {
+  color: green;
 }
 
+.checkbox-btn button, .checkbox-btn button:hover {
+  color: green;
+  background: transparent;
+}
 
 /* new todo form */
 #new-todo-form {
